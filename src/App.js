@@ -6,13 +6,16 @@ function App() {
     fetch('http://localhost:3001/solutions')
     .then(res => res.json())
     .then(json => {
-      console.log(json)
+      //rand int b/n 0 & 14
+      const randSolution = json[Math.floor(Math.random() * json.length)]
+      setSolution(randSolution.word)
     })
-  }, [])
+  }, [setSolution])
 
   return (
     <div className="App">
       <h1>Wordle</h1>
+      {solution && <div>Solution is: {solution}</div>}
     </div>
   );
 }
