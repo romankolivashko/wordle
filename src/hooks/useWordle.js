@@ -18,7 +18,7 @@ const useWordle = (solution) => {
     //find any green letters
     formattedGuess.forEach((l, i) => {
       if(solutionArray[i] === l.key){
-        formatGuess[i].color = 'green'
+        formattedGuess[i].color = 'green'
         solutionArray[i] = null
       }
     })
