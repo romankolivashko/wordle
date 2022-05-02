@@ -14,6 +14,24 @@ const useWordle = (solution) => {
     let formattedGuess = [...currentGuess].map((l) => {
       return {key: l, color: 'grey'}
     })
+
+    //find any green letters
+    formattedGuess.forEach((l, i) => {
+      if(solutionArray[i] === l.key){
+        formatGuess[i].color = 'green'
+        solutionArray[i] = null
+      }
+    })
+
+    //find any yello colors
+    formattedGuess.forEach((l, i) => {
+      if (solutionArray.includes(l.key) && l.color !== 'green'){
+        formattedGuess[i].color = 'yellow'
+        solutionArray[solutionArray.indexOf(l.key)] = null
+      }
+    })
+
+    return formattedGuess
   }
 
   // add a new guess to the guesses state
