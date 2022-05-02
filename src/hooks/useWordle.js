@@ -60,7 +60,8 @@ const useWordle = (solution) => {
          console.log('word must be 5 chars long');
          return
        }
-       formatGuess()
+       const formatted = formatGuess()
+       console.log(formatted);
     }
 
     
